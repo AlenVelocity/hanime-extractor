@@ -19,12 +19,24 @@
 import * as hanime from 'hanime-extractor'
 
 (async() => {
-    const output = await hanime.search('hajimete', ['loli'], 'likes', 'asc', 0)
+    // get search results
+    const output = await hanime.search('hajimete', ['loli'], 'likes', 'asc', 0) 
     console.log(output)
+
+    // get video info using slug gotten from above step
+    const videoInfo = await hanime.getVideoMedia('hajimete-no-orusuban-2')
+    console.log(videoInfo)
+
+    // download video using results from above steps
+    // can also be used to download same filetype videos from other sources than hanime
+    const file = await hanime.downloadVideo(videoInfo[1].url, './video/')
+    console.log(file)
 })()
 ```
 
-## Arguments. Ones with question mark can be undefined.
+## Arguments
 ```TS 
  // 1. text: string, 2. tags?: string[], 3. order_by?: string, 4. orderding?: desc || asc, 5. page?: number 
+ // 1. slug: string
+ // 1. url: string, 2. path: string
 ```
