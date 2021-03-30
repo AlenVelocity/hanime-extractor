@@ -24,7 +24,7 @@ import * as hanime from 'hanime-extractor'
 })()
 ```
 
-## Arguments
+## Arguments. Ones with question mark can be undefined.
 ```TS 
  // 1. text: string, 2. tags?: string[], 3. order_by?: string, 4. orderding?: desc || asc, 5. page?: number 
 ```
